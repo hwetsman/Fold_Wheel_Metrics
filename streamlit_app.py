@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+st.set_page_config(layout="wide")
 # set active spins file
 file = 'Holidays_2022_Wheel.csv'
 # file = 'September_Premium_Wheel.csv'
