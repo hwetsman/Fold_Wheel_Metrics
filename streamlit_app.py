@@ -36,10 +36,10 @@ observed_df = pd.DataFrame(pd.DataFrame(
 observed_df['Type'] = 'Obs_Freq'
 observed_df.reset_index(inplace=True, drop=False)
 observed_df = observed_df[observed_df.Result.isin(expected_df['Award'].tolist())]
-st.write(observed_df)
+# st.write(observed_df)
 
 # combine expected and observed
-expected_df
+# expected_df
 expected_df.rename(columns={'Award': 'Result', 'Exp_Freq': 'Freq'}, inplace=True)
 exp_set_list = expected_df.Result.tolist()
 expected_df['Type'] = 'Expected_Freq'
@@ -50,7 +50,7 @@ expected_df = expected_df[expected_df['Result'] != 'Total']
 # # expected_df.Freq = expected_df.Freq.astype(float)
 # observed_df = observed_df[observed_df['Result'].isin(exp_set_list)]
 df = expected_df.append(observed_df, ignore_index=True)
-st.write(df)
+# st.write(df)
 
 # intuititve first look
 # sns.set(rc={'figure.figsize': (11, 5)})
