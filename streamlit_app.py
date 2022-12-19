@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import plotly.express as px
@@ -92,8 +92,10 @@ for award in exp_set_list:
     plt.axvline(obs_freq, color='b')
     plt.show()
 
-    fig = px.histogram(
-        award_freqs, title=f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
+    fig = px.histogram(award_freqs, color_discrete_sequence=[
+                       '#2E91E5'], title=f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
     fig.add_vline(x=tile_975, line_color='green', line_width=3)
     fig.add_vline(x=tile_25, line_color='green', line_width=3)
+    fig.add_vline(x=expected, line_color='white')
+    fig.add_vline(x=obs_freq, line_color='blue')
     st.plotly_chart(fig, use_container_width=True)
