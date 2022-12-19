@@ -62,8 +62,11 @@ fig.update_traces(marker_size=10)
 st.plotly_chart(fig, use_container_width=True)
 
 # bootstrapping
-print('Green lines are 95% confidence intervals of the distributions of the distribution in blue')
-print('Blue line is observed frequency. Black line is expected frequency')
+st.sidebar.write('Observed Freq: Blue')
+st.sidebar.write('Expected Freq: White')
+st.sidebar.write('95% Confidence Limits: Green')
+# print('Green lines are 95% confidence intervals of the distributions of the distribution in blue')
+# print('Blue line is observed frequency. Black line is expected frequency')
 exp_set_list = [x for x in exp_set_list if x in observed_df.Result.tolist()]
 spins = np.array(obs_spins)
 for award in exp_set_list:
