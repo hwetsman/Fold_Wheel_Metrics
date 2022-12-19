@@ -12,13 +12,11 @@ st.set_page_config(layout="wide")
 wheels = ['Holidays_2022_Wheel.csv', 'September_Premium_Wheel.csv', 'Summer_Wheel_2.csv', 'Summer_Wheel.csv', 'Revamped_June_Wheel.csv', 'June_Wheel.csv', 'Late_May_Wheel.csv',
           'May_Wheel.csv', 'Easter_Wheel.csv', 'March_April.csv', 'March_Renew_Wheel.csv', 'March_Wheel.csv', 'February_Wheel.csv', 'New_Year_Wheel.csv']
 file = st.sidebar.selectbox("Select a wheel to view", wheels)
-# st.title(file)
+col_name, _ = file.split('.')
+st.title(col_name)
 
 # get active expecteds file
 expected_df = pd.read_csv('Expected_Rewards.csv')
-# print(expected_df)
-col_name, _ = file.split('.')
-st.title(col_name)
 expected_df = expected_df[['Award', col_name]].dropna()
 expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
 st.write(f'Expected rewards for {col_name}\n')
