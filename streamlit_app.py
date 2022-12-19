@@ -24,13 +24,12 @@ expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
 
 # get current spins
 df = pd.read_csv(file)
-# st.write(df)
 observations = df.shape[0]
 st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
 obs_spins[0:5]
 spins_set_list = list(set(obs_spins))
-st.write(spins_set_list)
+# st.write(spins_set_list)
 
 # create dataframe of observed spins frequency
 observed_df = pd.DataFrame(pd.DataFrame(
