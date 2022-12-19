@@ -56,9 +56,10 @@ st.write(df)
 sns.set(rc={'figure.figsize': (11, 5)})
 sns.set_style('white')
 sns.pointplot(x=df.Type, y=df.Freq, hue=df.Result, data=df, dodge=True)
-fig = px.line(df, y="Freq", x="Type", color="Result")  # , symbol="medal")
+fig = px.line(df, y="Freq", x="Type", color="Result",
+              title="Difference between Expected and Observed Frequency of Observed Rewards")  # , symbol="medal")
 fig.update_traces(marker_size=10)
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 # bootstrapping
 print('Green lines are 95% confidence intervals of the distributions of the distribution in blue')
