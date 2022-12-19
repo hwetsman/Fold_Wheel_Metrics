@@ -41,7 +41,7 @@ st.write(observed_df)
 # combine expected and observed
 expected_df
 expected_df.rename(columns={'Award': 'Result', 'Exp_Freq': 'Freq'}, inplace=True)
-# exp_set_list = expected_df.Result.tolist()
+exp_set_list = expected_df.Result.tolist()
 expected_df['Type'] = 'Expected_Freq'
 expected_df = expected_df[expected_df['Result'] != 'Total']
 # expected_df = expected_df[expected_df.Result != 'Total']
@@ -53,9 +53,9 @@ df = expected_df.append(observed_df, ignore_index=True)
 st.write(df)
 
 # intuititve first look
-sns.set(rc={'figure.figsize': (11, 5)})
-sns.set_style('white')
-sns.pointplot(x=df.Type, y=df.Freq, hue=df.Result, data=df, dodge=True)
+# sns.set(rc={'figure.figsize': (11, 5)})
+# sns.set_style('white')
+# sns.pointplot(x=df.Type, y=df.Freq, hue=df.Result, data=df, dodge=True)
 fig = px.line(df, y="Freq", x="Type", color="Result",
               title="Difference between Expected and Observed Frequency of Observed Rewards")  # , symbol="medal")
 fig.update_traces(marker_size=10)
@@ -89,3 +89,6 @@ for award in exp_set_list:
 
     plt.axvline(obs_freq, color='b')
     plt.show()
+
+    fig = px.histogram(award_freqs)
+    st.plotly_chart(fig, use_container_width=True)
