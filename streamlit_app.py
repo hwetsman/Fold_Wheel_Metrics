@@ -27,7 +27,6 @@ df = pd.read_csv(file)
 observations = df.shape[0]
 st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
-obs_spins[0:5]
 spins_set_list = list(set(obs_spins))
 # st.write(spins_set_list)
 
@@ -37,7 +36,7 @@ observed_df = pd.DataFrame(pd.DataFrame(
 observed_df['Type'] = 'Obs_Freq'
 observed_df.reset_index(inplace=True, drop=False)
 observed_df = observed_df[observed_df.Result.isin(expected_df['Award'].tolist())]
-observed_df
+st.write(observed_df)
 
 # combine expected and observed
 expected_df
