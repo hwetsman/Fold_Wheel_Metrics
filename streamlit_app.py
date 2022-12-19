@@ -19,18 +19,18 @@ st.title(col_name)
 expected_df = pd.read_csv('Expected_Rewards.csv')
 expected_df = expected_df[['Award', col_name]].dropna()
 expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
-st.write(f'Expected rewards for {col_name}\n')
-st.write(expected_df)
+# st.write(f'Expected rewards for {col_name}\n')
+# st.write(expected_df)
 
 # get current spins
 df = pd.read_csv(file)
-print(df)
+# st.write(df)
 observations = df.shape[0]
-print(f'The first 5 of the list of rewards of {observations} spins')
+st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
 obs_spins[0:5]
 spins_set_list = list(set(obs_spins))
-print(spins_set_list)
+st.write(spins_set_list)
 
 # create dataframe of observed spins frequency
 observed_df = pd.DataFrame(pd.DataFrame(
