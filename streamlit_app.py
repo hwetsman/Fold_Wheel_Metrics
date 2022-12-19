@@ -81,14 +81,19 @@ for award in exp_set_list:
     array = np.array(award_freqs)
     tile_25 = np.percentile(array, 2.5)
     tile_975 = np.percentile(array, 97.5)
-    plt.axvline(tile_25, color='green')
-    plt.axvline(tile_975, color='green')
+    # plt.axvline(tile_25, color='green')
+    #
+    # plt.axvline(tile_975, color='green')
+
     plt.axvline(expected, color='black')
     plt.title(f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
-    plt.hist(award_freqs)
+    # plt.hist(award_freqs)
 
     plt.axvline(obs_freq, color='b')
     plt.show()
 
-    fig = px.histogram(award_freqs)
+    fig = px.histogram(
+        award_freqs, title=f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
+    fig.add_vline(x=tile_975, line_color='green', line_width=3)
+    fig.add_vline(x=tile_25, line_color='green', line_width=3)
     st.plotly_chart(fig, use_container_width=True)
