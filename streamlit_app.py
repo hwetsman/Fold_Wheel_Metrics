@@ -41,15 +41,16 @@ st.write(observed_df)
 # combine expected and observed
 expected_df
 expected_df.rename(columns={'Award': 'Result', 'Exp_Freq': 'Freq'}, inplace=True)
-exp_set_list = expected_df.Result.tolist()
+# exp_set_list = expected_df.Result.tolist()
 expected_df['Type'] = 'Expected_Freq'
-expected_df = expected_df[expected_df.Result != 'Total']
-# removes any expected spin that didn't occur
-expected_df = expected_df[expected_df.Result.isin(list(set(obs_spins)))]
-# expected_df.Freq = expected_df.Freq.astype(float)
-observed_df = observed_df[observed_df['Result'].isin(exp_set_list)]
+expected_df = expected_df[expected_df['Result'] != 'Total']
+# expected_df = expected_df[expected_df.Result != 'Total']
+# # removes any expected spin that didn't occur
+# expected_df = expected_df[expected_df.Result.isin(list(set(obs_spins)))]
+# # expected_df.Freq = expected_df.Freq.astype(float)
+# observed_df = observed_df[observed_df['Result'].isin(exp_set_list)]
 df = expected_df.append(observed_df, ignore_index=True)
-print(df)
+st.write(df)
 
 # intuititve first look
 sns.set(rc={'figure.figsize': (11, 5)})
