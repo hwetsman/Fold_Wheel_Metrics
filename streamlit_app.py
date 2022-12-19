@@ -77,7 +77,7 @@ for award in exp_set_list:
         # find resulting frequency for 30-day purchases
         award_freq = boot[boot == award].size/boot.size
         award_freqs.append(award_freq)
-    plt.figure(figsize=(8, 5))
+    # plt.figure(figsize=(8, 5))
     array = np.array(award_freqs)
     tile_25 = np.percentile(array, 2.5)
     tile_975 = np.percentile(array, 97.5)
@@ -85,12 +85,12 @@ for award in exp_set_list:
     #
     # plt.axvline(tile_975, color='green')
 
-    plt.axvline(expected, color='black')
-    plt.title(f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
+    # plt.axvline(expected, color='black')
+    # plt.title(f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
     # plt.hist(award_freqs)
 
-    plt.axvline(obs_freq, color='b')
-    plt.show()
+    # plt.axvline(obs_freq, color='b')
+    # plt.show()
 
     fig = px.histogram(award_freqs, color_discrete_sequence=[
                        '#2E91E5'], title=f'Bootstrapped Distribution of {award} Reward. Expected: {expected}')
