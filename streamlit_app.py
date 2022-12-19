@@ -8,29 +8,21 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 st.set_page_config(layout="wide")
-# set active spins file
-file = 'Holidays_2022_Wheel.csv'
-# file = 'September_Premium_Wheel.csv'
-# file = 'Summer_Wheel_2.csv'
-# file = 'Summer_Wheel.csv'
-# file = 'Revamped_June_Wheel.csv'
-# file = 'June_Wheel.csv'
-# file = 'Late_May_Wheel.csv'
-# file = 'May_Wheel.csv'
-# file = 'Easter_Wheel.csv'
-# file = 'March_April.csv'
-# file = 'March_Renew_Wheel.csv'
-# file = 'March_Wheel.csv'
-# file = 'February_Wheel.csv'
-# file = 'New_Year_Wheel.csv'
+
+wheels = ['Holidays_2022_Wheel.csv', 'September_Premium_Wheel.csv', 'Summer_Wheel_2.csv', 'Summer_Wheel.csv', 'Revamped_June_Wheel.csv', 'June_Wheel.csv', 'Late_May_Wheel.csv',
+          'May_Wheel.csv', 'Easter_Wheel.csv', 'March_April.csv', 'March_Renew_Wheel.csv', 'March_Wheel.csv', 'February_Wheel.csv', 'New_Year_Wheel.csv']
+file = st.sidebar.selectbox("Select a wheel to view", wheels)
+# st.title(file)
 
 # get active expecteds file
 expected_df = pd.read_csv('Expected_Rewards.csv')
 # print(expected_df)
 col_name, _ = file.split('.')
+st.title(col_name)
 expected_df = expected_df[['Award', col_name]].dropna()
 expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
-# print(f'Expected rewards for {col_name}\n')
+st.write(f'Expected rewards for {col_name}\n')
+st.write(expected_df)
 
 # get current spins
 df = pd.read_csv(file)
