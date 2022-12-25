@@ -103,4 +103,5 @@ for award in exp_set_list:
     fig.add_vline(x=tile_25, line_color='green', line_width=3)
     fig.add_vline(x=expected, line_color='white')
     fig.add_vline(x=obs_freq, line_color='blue')
+    fig.update_layout(title_x=0.5)
     st.plotly_chart(fig, use_container_width=True)
