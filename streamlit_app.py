@@ -64,7 +64,7 @@ fig.update_layout(title_x=0.5)
 st.plotly_chart(fig, use_container_width=True)
 
 # bootstrapping
-st.sidebar.write()
+st.sidebar.write('\n\n')
 st.sidebar.write('Legend of line colors for histograms below: ')
 st.sidebar.write('Observed Freq: Blue')
 st.sidebar.write('Expected Freq: White')
