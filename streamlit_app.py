@@ -13,7 +13,7 @@ wheels = ['Holidays_2022_Wheel.csv', 'September_Premium_Wheel.csv', 'Summer_Whee
           'May_Wheel.csv', 'Easter_Wheel.csv', 'March_April.csv', 'March_Renew_Wheel.csv', 'March_Wheel.csv', 'February_Wheel.csv', 'New_Year_Wheel.csv']
 file = st.sidebar.selectbox("Select a wheel to view", wheels)
 col_name, _ = file.split('.')
-st.title(col_name)
+
 
 # get active expecteds file
 expected_df = pd.read_csv('Expected_Rewards.csv')
@@ -26,7 +26,8 @@ print(expected_df)
 # get current spins
 df = pd.read_csv(file)
 observations = df.shape[0]
-st.write(f'n = {observations} spins')
+st.title(f'{col_name} n={observations} spins')
+# st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
 spins_set_list = list(set(obs_spins))
 # st.write(spins_set_list)
