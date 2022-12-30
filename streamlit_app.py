@@ -65,6 +65,7 @@ fig.update_traces(marker_size=10)
 fig.update_layout(title_x=0.5)
 fig.update_xaxes(type='category', title_text="", tickangle=70, tickfont=dict(
     color='crimson', size=14))
+fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
 
 # bootstrapping
