@@ -26,7 +26,7 @@ print(expected_df)
 # get current spins
 df = pd.read_csv(file)
 observations = df.shape[0]
-st.title(f'{col_name} n={observations} spins')
+st.title(f'{col_name}     n={observations} spins')
 # st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
 spins_set_list = list(set(obs_spins))
