@@ -61,7 +61,8 @@ fig = px.line(df, y="Freq", x="Type", color="Result",
               title="Difference between Expected and Observed Frequency of Observed Rewards")  # , symbol="medal")
 fig.update_traces(marker_size=10)
 fig.update_layout(title_x=0.5)
-fig.update_xaxes(type='category', title_text="", title_font={"size": 20})
+fig.update_xaxes(type='category', title_text="", tickfont=dict(
+    family='Rockwell', color='crimson', size=14))
 st.plotly_chart(fig, use_container_width=True)
 
 # bootstrapping
