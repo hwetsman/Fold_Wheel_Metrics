@@ -34,7 +34,8 @@ spins_set_list = list(set(obs_spins))
 # create dataframe of observed spins frequency
 observed_df = pd.DataFrame(pd.DataFrame(
     {'Result': obs_spins}).value_counts(normalize=True), columns=['Freq'])
-observed_df['Type'] = 'Obs_Freq'
+# observed_df['Type'] = 'Obs_Freq'
+observed_df['Type'] = 'Observed'
 observed_df.reset_index(inplace=True, drop=False)
 observed_df = observed_df[observed_df.Result.isin(expected_df['Award'].tolist())]
 # st.write(observed_df)
@@ -43,7 +44,8 @@ observed_df = observed_df[observed_df.Result.isin(expected_df['Award'].tolist())
 # expected_df
 expected_df.rename(columns={'Award': 'Result', 'Exp_Freq': 'Freq'}, inplace=True)
 exp_set_list = expected_df.Result.tolist()
-expected_df['Type'] = 'Expected_Freq'
+# expected_df['Type'] = 'Expected_Freq'
+expected_df['Type'] = 'Expected'
 expected_df = expected_df[expected_df['Result'] != 'Total']
 # expected_df = expected_df[expected_df.Result != 'Total']
 # # removes any expected spin that didn't occur
