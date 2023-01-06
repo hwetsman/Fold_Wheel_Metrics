@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 
 st.set_page_config(layout="wide")
 
-wheels = ['Holidays_2022_Wheel.csv', 'September_Premium_Wheel.csv', 'Summer_Wheel_2.csv', 'Summer_Wheel.csv', 'Revamped_June_Wheel.csv', 'June_Wheel.csv', 'Late_May_Wheel.csv',
+wheels = ['New_Year_2023_Wheel.csv', 'Holidays_2022_Wheel.csv', 'September_Premium_Wheel.csv', 'Summer_Wheel_2.csv', 'Summer_Wheel.csv', 'Revamped_June_Wheel.csv', 'June_Wheel.csv', 'Late_May_Wheel.csv',
           'May_Wheel.csv', 'Easter_Wheel.csv', 'March_April.csv', 'March_Renew_Wheel.csv', 'March_Wheel.csv', 'February_Wheel.csv', 'New_Year_Wheel.csv']
 file = st.sidebar.selectbox("Select a wheel to view", wheels)
 col_name, _ = file.split('.')
