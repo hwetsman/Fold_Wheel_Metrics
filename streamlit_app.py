@@ -19,7 +19,7 @@ col_name, _ = file.split('.')
 expected_df = pd.read_csv('Expected_Rewards.csv')
 expected_df = expected_df[['Award', col_name]].dropna()
 expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
-print(expected_df)
+# print(expected_df)
 # st.write(f'Expected rewards for {col_name}\n')
 # st.write(expected_df)
 
