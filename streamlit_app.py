@@ -27,7 +27,7 @@ expected_df.rename(columns={col_name: 'Exp_Freq'}, inplace=True)
 df = pd.read_csv(file)
 observations = df.shape[0]
 st.title(f'{col_name}     n={observations} spins')
-if file = 'Spin_Plus.csv':
+if file == 'Spin_Plus.csv':
     st.write(f'Total reward: {df.SPIN_RESULT.sum()} sats after {observations} spins')
 # st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
