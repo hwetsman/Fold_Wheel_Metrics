@@ -28,12 +28,12 @@ df = pd.read_csv(file)
 observations = df.shape[0]
 st.title(f'{col_name}     n={observations} spins')
 if file == 'Spin_Plus.csv':
-    st.write(df.SPIN_RESULT.tolist())
     total = 0
     for spin in df.SPIN_RESULT.tolist():
         if 'X' in spin:
             spin = '30'
         total = total + int(spin)
+        st.write(f'{spin} {total})
     st.write(f'Total reward: {total} sats after {observations} spins')
 # st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
