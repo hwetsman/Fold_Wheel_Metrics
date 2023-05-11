@@ -33,7 +33,7 @@ if file == 'Spin_Plus.csv':
         if 'X' in spin:
             spin = '30'
         total = total + int(spin)
-        st.write(f'{spin} {total})
+        st.write(f'{spin} {total}')
     st.write(f'Total reward: {total} sats after {observations} spins')
 # st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
