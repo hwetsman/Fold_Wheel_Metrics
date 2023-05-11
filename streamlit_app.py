@@ -28,7 +28,7 @@ df = pd.read_csv(file)
 observations = df.shape[0]
 st.title(f'{col_name}     n={observations} spins')
 if file == 'Spin_Plus.csv':
-    st.write(df.SPIN_RESULT.tolist():)
+    st.write(df.SPIN_RESULT.tolist())
     total = 0
     for spin in df.SPIN_RESULT.tolist():
         if 'X' in spin:
