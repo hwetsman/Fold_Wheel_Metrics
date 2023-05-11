@@ -29,13 +29,13 @@ observations = df.shape[0]
 st.title(f'{col_name}     n={observations} spins')
 if file == 'Spin_Plus.csv':
     total = 0
-    count = 0
     for spin in df.SPIN_RESULT.tolist():
-        if 'X' in spin:
+        # if 'X' in spin:
+        if any(Xs in spin for Xs in ['5x', '5X']):
             spin = '30'
         total = total + int(spin)
-        count = count + 1
-        st.write(f'{spin}  {total}  {count}')
+        # count = count + 1
+        # st.write(f'{spin}  {total}  {count}')
     st.write(f'Total reward: {total} sats after {observations} spins')
 # st.write(f'n = {observations} spins')
 obs_spins = df.SPIN_RESULT.tolist()
